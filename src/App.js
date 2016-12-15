@@ -14,8 +14,8 @@ const contentMessages = defineMessages({
   count: {
     id: 'body.count',
     defaultMessage: `Look, I can pluralize {count, plural,
-      one {{count} number}
-      other {{count} new contacts}
+      one {{formattedCount} number}
+      other {{formattedCount} numbers}
     }`
   },
   date: {
@@ -71,13 +71,15 @@ class App extends Component {
             <p>
               <FormattedMessage {...contentMessages.count}
                                 values={{
-                                  count: <FormattedNumber value={1}/>
+                                  count: 1,
+                                  formattedCount: <FormattedNumber value={1}/>
                                 }} />
             </p>
             <p>
               <FormattedMessage {...contentMessages.count}
                                 values={{
-                                  count: <FormattedNumber value={2000}/>
+                                  count: 2000,
+                                  formattedCount: <FormattedNumber value={2000}/>
                                 }} />
             </p>
             <p>
