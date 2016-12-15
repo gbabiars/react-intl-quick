@@ -78,17 +78,15 @@ const locales = {
 };
 
 export default function(language, cb) {
-  var fn;
-  var lowercaseLanguage = language.toLowerCase();
+  let fn;
+  const lowercaseLanguage = language.toLowerCase();
 
   if(locales[lowercaseLanguage]) {
     fn = locales[lowercaseLanguage];
   } else {
-    var shortLanguage = language.substring(0, 2);
+    const shortLanguage = language.substring(0, 2);
     fn = locales[shortLanguage] || locales.en;
   }
-
-  var hasIntl = typeof(Intl) !== 'undefined';
 
   if(!hasIntl) {
     require.ensure(['intl'], function(require) {
